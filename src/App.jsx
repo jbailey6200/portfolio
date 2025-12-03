@@ -295,35 +295,25 @@ function ProjectCard({ project, index }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Project Image Placeholder */}
-      <div style={{
-        height: '220px',
-        background: `linear-gradient(135deg, ${project.accent}15 0%, ${project.accent}05 100%)`,
-        borderBottom: '1px solid var(--border-color)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: `
-            radial-gradient(circle at 20% 80%, ${project.accent}20 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, ${project.accent}15 0%, transparent 40%)
-          `
-        }} />
-        <Code2 
-          size={48} 
-          style={{ 
-            color: project.accent,
-            opacity: 0.6,
-            transition: 'all 0.3s ease',
-            transform: isHovered ? 'scale(1.1)' : 'scale(1)'
-          }} 
-        />
-      </div>
+      {/* Project Image */}
+<div style={{
+  height: '220px',
+  borderBottom: '1px solid var(--border-color)',
+  overflow: 'hidden',
+  position: 'relative'
+}}>
+  <img 
+    src={project.image} 
+    alt={project.title}
+    style={{
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      transition: 'transform 0.4s ease',
+      transform: isHovered ? 'scale(1.05)' : 'scale(1)'
+    }}
+  />
+</div>
       
       {/* Content */}
       <div style={{ padding: '28px' }}>
